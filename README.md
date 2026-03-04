@@ -31,6 +31,11 @@ These aren't ready-made activities for specific courses—they're **templates th
 - **Adapt it for:** Needs assessments, diagnostic processes, evaluation frameworks
 - **Works for:** Education, healthcare, social sciences, business consulting
 
+**[Leadership Case Study](https://wku-citl.github.io/html-activities/examples/leadership-decision-tree.html)**
+- Features: Multi-stage case analysis, decision points with consequences, role-based perspectives
+- **Adapt it for:** Business case studies, leadership scenarios, strategic planning exercises, conflict resolution
+- **Works for:** Business, management, organizational leadership, MBA programs
+
 ---
 
 ### 🔄 Sorting & Categorization Activities
@@ -74,6 +79,15 @@ These aren't ready-made activities for specific courses—they're **templates th
 
 ---
 
+### ✍️ Error Identification & Editing Practice
+
+**[Spot the Grammar & Style Errors](https://wku-citl.github.io/html-activities/examples/spot-grammar-errors.html)**
+- Features: Click-to-reveal feedback, 10 common errors, detailed explanations with corrections and grammar rules
+- **Adapt it for:** Any discipline with error identification—coding syntax errors, math problem identification, scientific reasoning flaws, logical fallacies
+- **Works for:** English composition, writing across curriculum, computer science, critical thinking
+
+---
+
 ## 🤖 How to Customize with AI
 
 1. **Try the activity** - Click the link and interact with it to understand how it works
@@ -111,8 +125,12 @@ These aren't ready-made activities for specific courses—they're **templates th
 
 ---
 
-## 📖 AI Prompt Templates
+## 📖 AI Prompt Templates & Code
 
-Coming soon! We're developing detailed prompt templates for each activity type to make customization even easier.
+Ready-to-use prompts and source code for each activity type are available in the [prompts folder](https://github.com/wku-citl/html-activities/tree/main/prompts).
 
 ---
+
+*These templates are free for educational use. Adapt and modify them for your courses.*
+
+*Last updated: March 2026*
