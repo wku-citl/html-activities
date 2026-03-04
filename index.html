@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive HTML Learning Activities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-card {
+            background: white;
+            border-radius: 16px;
+            padding: 50px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .header-card h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header-card .subtitle {
+            color: #666;
+            font-size: 1.3em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 25px;
+        }
+
+        .header-card .tagline {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .intro-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-left: 5px solid #3498db;
+        }
+
+        .intro-box h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .intro-box p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .category-icon {
+            font-size: 2em;
+        }
+
+        .category-title {
+            color: #2c3e50;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        .activity-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .activity-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .activity-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+        }
+
+        .activity-item h3 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .activity-item h3 a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .activity-item h3 a:hover {
+            color: #3498db;
+        }
+
+        .activity-features {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .activity-adapt {
+            color: #27ae60;
+            font-weight: 600;
+            font-size: 0.95em;
+            margin-bottom: 5px;
+        }
+
+        .activity-works {
+            color: #888;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        .how-to-box {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-left: 5px solid #27ae60;
+        }
+
+        .how-to-box h2 {
+            color: #27ae60;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .how-to-steps {
+            display: grid;
+            gap: 15px;
+        }
+
+        .step {
+            display: flex;
+            gap: 15px;
+            align-items: start;
+        }
+
+        .step-number {
+            background: #27ae60;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-content strong {
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .step-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-top: 5px;
+        }
+
+        .example-prompt {
+            background: #f8f9fa;
+            border: 2px dashed #3498db;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            color: #2c3e50;
+        }
+
+        .footer-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .footer-box h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        .footer-box p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .footer-box a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-box a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-card h1 {
+                font-size: 1.8em;
+            }
+
+            .header-card .subtitle {
+                font-size: 1.1em;
+            }
+
+            .category-title {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-card">
+            <h1>🚀 Interactive HTML Learning Activities</h1>
+            <p class="subtitle">Adaptable activity templates designed for easy AI-powered customization</p>
+            <div class="tagline">10 Activity Types • All Disciplines • Free to Use</div>
+        </div>
+
+        <div class="intro-box">
+            <h2>🎯 What Are These?</h2>
+            <p>These aren't ready-made activities for specific courses—they're <strong>templates that show what's possible</strong>.</p>
+            <p>The psychology flashcards can become business term flashcards. The chemistry sorting activity can become a literary genre sorter. The timeline can display any chronological sequence.</p>
+            <p><strong>Use AI to adapt these templates to your discipline and content in minutes.</strong></p>
+        </div>
+
+        <!-- Flashcards -->
+        <div class="category-card">
+            <div class="category-header">
+                <span class="category-icon">📇</span>
+                <h2 class="category-title">Flashcards & Study Tools</h2>
+            </div>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <h3><a href="examples/psychology-flashcards.html" target="_blank">Psychology Flashcards →</a></h3>
+                    <p class="activity-features"><strong>Features:</strong> Study mode toggle, mastery tracking, shuffle, keyboard navigation</p>
+                    <p class="activity-adapt"><strong>Adapt it for:</strong> Vocabulary terms, key concepts, definitions, formulas, procedures</p>
+                    <p class="activity-works">Works for: Any discipline requiring memorization and recall practice</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decision Trees -->
+        <div class="category-card">
+            <div class="category-header">
+                <span class="category-icon">🌳</span>
+                <h2 class="category-title">Decision Trees & Branching Scenarios</h2>
+            </div>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <h3><a href="examples/course-redesign-decision-tree.html" target="_blank">Course Redesign Decision Tree →</a></h3>
+                    <p class="activity-features"><strong>Features:</strong> Multiple decision points, contextual outcomes, learning theory connections</p>
+                    <p class="activity-adapt"><strong>Adapt it for:</strong> Clinical decision-making, ethical dilemmas, case analysis, troubleshooting guides</p>
+                    <p class="activity-works">Works for: Nursing, business, counseling, social work, engineering</p>
+                </div>
+                <div class="activity-item">
+                    <h3><a href="examples/behavior-function-assessment.html" target="_blank">Classroom Behavior Function Assessment →</a></h3>
+                    <p class="activity-features"><strong>Features:</strong> Diagnostic tool with personalized recommendations</p>
+                    <p class="activity-adapt"><strong>Adapt it for:</strong> Needs assessments, diagnostic processes, evaluation frameworks</p>
+                    <p class="activity-works">Works for: Education, healthcare, social sciences, business consulting</p>
+                </div>
+                <div class="activity-item">
+                    <h3><a href="examples/midtech-leadership-case-study.html" target="_blank">MidTech Leadership Case Study →</a></h3>
+                    <p class="activity-features"><strong>Features:</strong> Multi-stage case analysis, decision points with consequences, role-based perspectives</p>
+                    <p class="activity-adapt"><strong>Adapt it for:</strong> Business case studies, leadership scenarios, strategic planning, conflict resolution</p>
+                    <p class="activity-works">Works for: Business, management, organizational leadership, MBA programs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sorting -->
+        <div class="category-card">
+            <div class="category-header">
+                <span class="category-icon">🔄</span>
+                <h2 class="category-title">Sorting & Categorization</h2>
+            </div>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <h3><a href="examples/chemical-physical-changes-sorting.html" target="_blank">Chemical vs. Physical Changes Sorting →</a></h3>
+                    <p class="activity-features"><strong>Features:</strong> Drag-and-drop, immediate feedback, progress tracking</p>
+                    <p class="activity-adapt"><strong>Adapt it for:</strong> Any classification task—literary genres, historical periods, business models, research methods</p>
+                    <p class="activity-works">Works for: Every discipline with categorization concepts</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checklists -->
+        <div class="category-card">
+            <div class="category-header">
+                <span class="category-icon">✅</span>
+                <h2 class="category-title">Checklists & Procedures</h2>
+            </div>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <h3><a href="examples/lab-safety-checklist.html" target="_blank">Lab Safety Checklist →</a></h3>
+                    <p class="activity-features"><strong>Features:</strong> Progress tracking, nested items, print-friendly</p>
+                    <p class="activity-adapt"><strong>Adapt it for:</strong> Pre-activity checklists, safety protocols, project milestones</p>
+                    <p class="activity-works">Works for: Lab sciences, healthcare, engineering, project management</p>
+                </div>
+                <div class="activity-item">
+                    <h3><a href="examples/clinical-hand-hygiene-guide.html" target="_blank">Clinical Hand Hygiene Procedure Guide →</a></h3>
+                    <p class="activity-features"><strong>Features:</strong> Detailed steps with technique/mistakes/rationale, visual placeholders, progress tracking</p>
+                    <p class="activity-adapt"><strong>Adapt it for:</strong> Any multi-step skill or procedure—lab techniques, clinical skills, software tutorials</p>
+                    <p class="activity-works">Works for: Health sciences, sciences, technical fields, skills-based learning</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timelines -->
+        <div class="category-card">
+            <div class="category-header">
+                <span class="category-icon">📅</span>
+                <h2 class="category-title">Timelines & Sequencing</h2>
+            </div>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <h3><a href="examples/civil-rights-timeline.html" target="_blank">Civil Rights Movement Timeline →</a></h3>
+                    <p class="activity-features"><strong>Features:</strong> Click-to-select placement, immediate feedback, historical details</p>
+                    <p class="activity-adapt"><strong>Adapt it for:</strong> Any chronological sequence—scientific discoveries, literary periods, artistic movements, business milestones</p>
+                    <p class="activity-works">Works for: History, literature, sciences, business, healthcare</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Planning Tools -->
+        <div class="category-card">
+            <div class="category-header">
+                <span class="category-icon">🛠️</span>
+                <h2 class="category-title">Planning & Prioritization</h2>
+            </div>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <h3><a href="examples/startup-launch-plan-builder.html" target="_blank">Startup Launch Plan Builder →</a></h3>
+                    <p class="activity-features"><strong>Features:</strong> Select 3-5 priorities, generate personalized action plan with implementation steps</p>
+                    <p class="activity-adapt"><strong>Adapt it for:</strong> Research planning, course design, project management, career planning, goal setting</p>
+                    <p class="activity-works">Works for: Business, research methods, professional development, project-based courses</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Identification -->
+        <div class="category-card">
+            <div class="category-header">
+                <span class="category-icon">✍️</span>
+                <h2 class="category-title">Error Identification & Editing</h2>
+            </div>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <h3><a href="examples/spot-grammar-errors.html" target="_blank">Spot the Grammar & Style Errors →</a></h3>
+                    <p class="activity-features"><strong>Features:</strong> Click-to-reveal feedback, 10 common errors, detailed explanations with corrections</p>
+                    <p class="activity-adapt"><strong>Adapt it for:</strong> Coding syntax errors, math problem identification, scientific reasoning flaws, logical fallacies</p>
+                    <p class="activity-works">Works for: English composition, writing across curriculum, computer science, critical thinking</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- How to Customize -->
+        <div class="how-to-box">
+            <h2>🤖 How to Customize with AI</h2>
+            <div class="how-to-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Try the activity</strong>
+                        <p>Click the link and interact with it to understand how it works</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Download the HTML</strong>
+                        <p>Right-click on the page → Save As → save the HTML file</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Open ChatGPT or Claude</strong>
+                        <p>Use a prompt like this:</p>
+                        <div class="example-prompt">
+                            "I have an HTML flashcard activity about psychology concepts. I want to adapt it for my biology course to quiz students on cell organelles. Keep all the functionality (flip cards, study mode, mastery tracking) but replace the psychology content with 12 cell organelle terms and definitions. Here's the HTML: [paste code]"
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <strong>Copy the new code</strong>
+                        <p>AI will generate customized HTML ready to use</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <strong>Upload to your LMS</strong>
+                        <p>In Blackboard Ultra: Create → Document → Upload HTML file</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-box">
+            <h2>📖 Want More?</h2>
+            <p>AI prompt templates and source code are available in the <a href="https://github.com/wku-citl/html-activities/tree/main/prompts" target="_blank">prompts folder</a>.</p>
+            <p style="margin-top: 20px;"><strong>Created by Catie Wright</strong><br>
+            Instructional Designer II, Western Kentucky University<br>
+            <a href="mailto:catie.wright@wku.edu">catie.wright@wku.edu</a></p>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #999;">Presented at UPCEA 2025: "Dynamic by Design - Using AI-Powered HTML to Transform Course Content in Your LMS"</p>
+        </div>
+    </div>
+</body>
+</html>
