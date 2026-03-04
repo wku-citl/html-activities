@@ -127,7 +127,7 @@ These aren't ready-made activities for specific courses—they're **templates th
 
 ## 📖 AI Prompt Templates & Code
 
-Ready-to-use prompts and source code for each activity type are available in the [prompts folder](https://github.com/wku-citl/html-activities/prompts).
+Ready-to-use AI prompt templates are available in the **[Getting Started Guide](https://wku-citl.github.io/html-activities/prompts/getting-started.html)**.
 
 ---
 
