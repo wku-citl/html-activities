@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with AI Customization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: white;
+            color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .header-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .header-card h1 {
+            color: #2c3e50;
+            font-size: 2.3em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header-card p {
+            color: #666;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-card h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .content-card h3 {
+            color: #3498db;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .content-card p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .content-card ul, .content-card ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content-card li {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .steps-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .steps-list ol {
+            margin-left: 25px;
+        }
+
+        .steps-list li {
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .prompt-box {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            border-left: 4px solid #27ae60;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .example-box strong {
+            color: #27ae60;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .activity-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .activity-section h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .best-for {
+            color: #27ae60;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .tip-box strong {
+            color: #e67e22;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .checkmark {
+            color: #27ae60;
+            margin-right: 5px;
+        }
+
+        .xmark {
+            color: #e74c3c;
+            margin-right: 5px;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-card h1 {
+                font-size: 1.8em;
+            }
+
+            .content-card {
+                padding: 25px 20px;
+            }
+
+            .prompt-box {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Activities</a>
+
+        <div class="header-card">
+            <h1>🤖 Getting Started with AI Customization</h1>
+            <p>Learn how to adapt any activity template for your course using ChatGPT or Claude</p>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="content-card">
+            <h2>Quick Start Process</h2>
+            <div class="steps-list">
+                <ol>
+                    <li>Try an activity - Click any link from the main page to see it in action</li>
+                    <li>Download the source code - Right-click → View Page Source → Save As HTML</li>
+                    <li>Use AI to customize - Follow the prompts below</li>
+                    <li>Test your activity - Open the HTML file locally to test</li>
+                    <li>Upload to your LMS - Add to Blackboard, Canvas, etc.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- General Template -->
+        <div class="content-card">
+            <h2>General Customization Prompt Template</h2>
+            <p>Use this prompt structure for any activity:</p>
+
+            <div class="prompt-box">
+I have an HTML [ACTIVITY TYPE] for [ORIGINAL SUBJECT].
+
+I want to adapt it for my [YOUR SUBJECT] course to [YOUR GOAL].
+
+Keep all the functionality ([LIST KEY FEATURES]) but replace the 
+[ORIGINAL SUBJECT] content with [YOUR NEW CONTENT].
+
+Here are my specific requirements:
+- [REQUIREMENT 1]
+- [REQUIREMENT 2]
+- [REQUIREMENT 3]
+
+Here's the HTML code: [PASTE CODE]
+            </div>
+
+            <div class="example-box">
+                <strong>Example:</strong>
+                <div class="prompt-box">
+I have an HTML flashcard activity for psychology concepts.
+
+I want to adapt it for my Spanish 101 course to help students 
+practice vocabulary.
+
+Keep all the functionality (flip cards, study mode, shuffle, 
+mastery tracking) but replace the psychology content with 15 
+Spanish vocabulary words and their English translations.
+
+Here are my specific requirements:
+- Include common greetings and introductions
+- Add pronunciation hints in the descriptions
+- Keep the purple color scheme
+
+Here's the HTML code: [PASTE CODE]
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity-Specific Prompts -->
+        <div class="content-card">
+            <h2>Activity-Specific Prompts</h2>
+
+            <!-- Flashcards -->
+            <div class="activity-section">
+                <h3>📇 Flashcards</h3>
+                <p class="best-for"><strong>Best for:</strong> Vocabulary, definitions, key concepts, formulas</p>
+
+                <h4>Customization Prompt:</h4>
+                <div class="prompt-box">
+I have an HTML flashcard activity. I need to create [NUMBER] 
+flashcards for my [COURSE/TOPIC].
+
+Each card should have:
+- Front: [WHAT GOES ON FRONT]
+- Back: [WHAT GOES ON BACK]
+
+Keep the study mode toggle, mastery tracking, and shuffle features.
+
+My [NUMBER] items are:
+1. [ITEM 1]: [DEFINITION/ANSWER]
+2. [ITEM 2]: [DEFINITION/ANSWER]
+...
+
+Here's the code: [PASTE CODE]
+                </div>
+            </div>
+
+            <!-- Decision Trees -->
+            <div class="activity-section">
+                <h3>🌳 Decision Trees / Branching Scenarios</h3>
+                <p class="best-for"><strong>Best for:</strong> Case studies, clinical reasoning, troubleshooting, ethical dilemmas</p>
+
+                <h4>Customization Prompt:</h4>
+                <div class="prompt-box">
+I have an HTML decision tree activity. I need to create a 
+branching scenario for [YOUR CONTEXT].
+
+The scenario should have:
+- Starting scenario: [DESCRIBE INITIAL SITUATION]
+- [NUMBER] decision points where users choose between [NUMBER] options
+- Different outcomes based on choices
+
+Decision points:
+1. [DECISION 1]: Options: [A], [B], [C]
+2. [DECISION 2]: Options: [A], [B]
+...
+
+Keep the progress tracking and visual design.
+
+Here's the code: [PASTE CODE]
+                </div>
+            </div>
+
+            <!-- Sorting -->
+            <div class="activity-section">
+                <h3>🔄 Sorting Activities</h3>
+                <p class="best-for"><strong>Best for:</strong> Classification, categorization, grouping concepts</p>
+
+                <h4>Customization Prompt:</h4>
+                <div class="prompt-box">
+I have an HTML drag-and-drop sorting activity. I need students 
+to sort [NUMBER] items into [NUMBER] categories.
+
+Categories:
+1. [CATEGORY 1]: [DESCRIPTION]
+2. [CATEGORY 2]: [DESCRIPTION]
+
+Items to sort:
+- [ITEM 1] (belongs in [CATEGORY])
+- [ITEM 2] (belongs in [CATEGORY])
+...
+
+Keep the drag-and-drop functionality, immediate feedback, and 
+progress tracking.
+
+Here's the code: [PASTE CODE]
+                </div>
+            </div>
+
+            <!-- Checklists -->
+            <div class="activity-section">
+                <h3>✅ Checklists</h3>
+                <p class="best-for"><strong>Best for:</strong> Procedures, protocols, pre-activity checks, step-by-step processes</p>
+
+                <h4>Customization Prompt:</h4>
+                <div class="prompt-box">
+I have an HTML checklist activity. I need a checklist for 
+[YOUR PROCEDURE/PROTOCOL].
+
+Main sections:
+1. [SECTION 1]: [DESCRIPTION]
+   - [ITEM 1]
+   - [ITEM 2]
+   
+2. [SECTION 2]: [DESCRIPTION]
+   - [ITEM 1]
+   - [ITEM 2]
+
+Keep the progress tracking and nested checkbox functionality.
+
+Here's the code: [PASTE CODE]
+                </div>
+            </div>
+
+            <!-- Timelines -->
+            <div class="activity-section">
+                <h3>📅 Timelines</h3>
+                <p class="best-for"><strong>Best for:</strong> Chronological events, sequences, historical periods</p>
+
+                <h4>Customization Prompt:</h4>
+                <div class="prompt-box">
+I have an HTML timeline activity where students arrange events 
+chronologically.
+
+I need a timeline for [YOUR TOPIC] covering [TIME PERIOD].
+
+Events to include:
+1. [YEAR]: [EVENT NAME] - [BRIEF DESCRIPTION] - [SIGNIFICANCE]
+2. [YEAR]: [EVENT NAME] - [BRIEF DESCRIPTION] - [SIGNIFICANCE]
+...
+
+Keep the click-to-select placement and immediate feedback features.
+
+Here's the code: [PASTE CODE]
+                </div>
+            </div>
+
+            <!-- Planning Tools -->
+            <div class="activity-section">
+                <h3>🛠️ Planning & Prioritization Tools</h3>
+                <p class="best-for"><strong>Best for:</strong> Project planning, goal setting, strategy development</p>
+
+                <h4>Customization Prompt:</h4>
+                <div class="prompt-box">
+I have an HTML prioritization tool where users select 3-5 items 
+from multiple categories.
+
+I need this adapted for [YOUR CONTEXT].
+
+Categories:
+1. [CATEGORY 1]: [NUMBER] options
+2. [CATEGORY 2]: [NUMBER] options
+
+For each option, include:
+- Title
+- Brief description
+- Implementation steps
+- Time/resource requirements
+
+Keep the select-and-generate-plan functionality.
+
+Here's the code: [PASTE CODE]
+                </div>
+            </div>
+
+            <!-- Error Identification -->
+            <div class="activity-section">
+                <h3>✍️ Error Identification Activities</h3>
+                <p class="best-for"><strong>Best for:</strong> Editing practice, debugging, critical thinking</p>
+
+                <h4>Customization Prompt:</h4>
+                <div class="prompt-box">
+I have an HTML error identification activity where students click 
+highlighted text to reveal errors.
+
+I need a [LENGTH] passage about [TOPIC] with [NUMBER] embedded 
+errors of these types:
+- [ERROR TYPE 1]
+- [ERROR TYPE 2]
+- [ERROR TYPE 3]
+
+For each error, provide:
+- What's wrong
+- How to fix it
+- The underlying rule/principle
+
+Keep the click-to-reveal and progress tracking features.
+
+Here's the code: [PASTE CODE]
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="content-card">
+            <h2>Tips for Best Results</h2>
+
+            <h3>1. Be Specific</h3>
+            <p><span class="xmark">❌</span> "Make this about science"</p>
+            <p><span class="checkmark">✅</span> "Create flashcards for 15 biology terms related to cellular respiration, including ATP, mitochondria, glycolysis..."</p>
+
+            <h3>2. Provide Complete Content</h3>
+            <p>Give AI all the content it needs rather than asking it to generate content. You know your discipline better than AI does.</p>
+
+            <h3>3. Test Thoroughly</h3>
+            <p>Always test the customized activity before sharing with students. Check:</p>
+            <ul>
+                <li>All content is accurate</li>
+                <li>Interactive features work</li>
+                <li>Links/navigation function properly</li>
+                <li>Displays correctly on mobile devices</li>
+            </ul>
+
+            <h3>4. Iterate</h3>
+            <p>If the first result isn't perfect, give AI feedback:</p>
+            <div class="prompt-box">"This is close, but can you make these changes: [LIST SPECIFIC CHANGES]"</div>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="content-card">
+            <h2>Troubleshooting</h2>
+
+            <div class="tip-box">
+                <strong>Problem: Activity doesn't work after customization</strong>
+                <p><strong>Solution:</strong> Check for these common issues:</p>
+                <ul>
+                    <li>Missing closing tags (&lt;/div&gt;, &lt;/script&gt;)</li>
+                    <li>Mismatched quotation marks</li>
+                    <li>Deleted essential JavaScript code</li>
+                    <li>Ask AI: "The activity isn't working. Can you check the code for errors?"</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <strong>Problem: Content doesn't fit the layout</strong>
+                <p><strong>Solution:</strong> "The text is too long for the cards. Can you shorten descriptions to 2-3 sentences each?"</p>
+            </div>
+
+            <div class="tip-box">
+                <strong>Problem: Want to change colors/fonts</strong>
+                <p><strong>Solution:</strong> "Can you change the color scheme to [YOUR COLORS] and use [FONT NAME] font?"</p>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-link" style="margin-top: 30px; display: inline-block;">← Back to Activities</a>
+    </div>
+</body>
+</html>
